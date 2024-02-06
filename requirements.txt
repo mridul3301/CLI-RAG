@@ -1,0 +1,6 @@
+llama-index-0.9.44
+langchain-0.1.5
+sentence-transformers-2.3.1
+weaviate-client-4.4.2
+pypdf-4.0.1
+python-box-7.1.1
