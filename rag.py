@@ -1,4 +1,3 @@
-import argparse
 from pipeline import build_pipeline
 
 
@@ -18,7 +17,7 @@ def main():
 
         else:
             answer = qa_func(user_input)
-            answer = answer + " Thank You!"
+            answer = str(answer) + " Thank You!"
             print(f"Answer: {answer}")
             
 if __name__ == "__main__":
