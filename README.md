@@ -8,16 +8,19 @@ Using the repo for RAG :
 
 2. `cd` inside the repo
 
+3. Run the following command `docker compose up -d` to set up vector database *weaviate*.
+
+4. Install Ollama using command : `curl https://ollama.ai/install.sh | sh`
+
+5. Run the following command : `ollama run <llm_name>`
+
 3. Change the file inside the `data/` directory as necessary or leave as it is. All the documents inside `data/` should be in `.pdf` format.
 
 4. Make personalized changes on stuff like “***LLM***” or “***EMBEDDINGS***” etc. by making changes on `congif.yml` file.
 
-5. Build the docker image: `docker build -t <image_name>` <br>
-This process of building docker image might take some time for first try. Took about  seconds for me.
+6. Run the file : `python rag.py`.
 
-6. Run the image : ``.
-
-
+7. To exit qa terminal, type `exit` command.
 
 ## Information about code :
 In this project, we are using `weaviate` as our vector database. The `docker-compose.yml` is actually used to set up weaviate client.

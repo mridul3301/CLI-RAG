@@ -8,12 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Install Docker Compose
-RUN apt-get update && \
-    apt-get install -y docker-compose && \
-    rm -rf /var/lib/apt/lists/*
+RUN pip install -r requirements.txt
 
 # Install Ollama
 RUN curl https://ollama.ai/install.sh | sh
@@ -22,11 +17,20 @@ RUN curl https://ollama.ai/install.sh | sh
 ENV PYTHONUNBUFFERED 1
 ENV PATH="/app:${PATH}"
 
+# Optional: Set environment variables for Weaviate connection
+# ENV WEAVIATE_HOST=http://localhost:8080
+# ENV WEAVIATE_PORT=8080
+
+# Expose port 80
+EXPOSE 80
+
 # Run database setup using docker-compose
-RUN docker compose up -d
+# RUN docker compose up -d
 
 # Setup Ollama and run LLM
-RUN ollama run $(cat config.yml | grep 'LLM' | cut -d' ' -f2)
+#ENV LLM_NAME = $(cat config.yml | grep 'LLM' | cut -d' ' -f2)
+
+#RUN ollama run LLM_NAME
 
 # Define environment variable
 ENV NAME CLI-RAG
